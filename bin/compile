@@ -10,8 +10,6 @@ nginx_version=$(./bin/nginx-$STACK -V 2>&1 | head -1 | awk '{ print $NF }')
 echo "-----> nginx-s3-buildpack: Installed ${nginx_version} to app/bin"
 cp bin/start-nginx "$1/bin/"
 echo '-----> nginx-s3-buildpack: Added start-nginx to app/bin'
-cp bin/start-nginx-solo "$1/bin/"
-echo '-----> nginx-s3-buildpack: Added start-nginx-solo to app/bin'
 
 curl --progress-bar -o "$1/bin/s3cli" $S3_CLI_URL
 chmod +x "$1/bin/s3cli"

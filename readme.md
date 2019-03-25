@@ -11,15 +11,11 @@ Some application servers (e.g. Ruby's Unicorn) halt progress when dealing with n
 * Buildpack Version: 1.1
 * NGINX Version: 1.9.5
 
-## Requirements (Proxy Mode)
+## Requirements
 
 * Your webserver listens to the socket at `/tmp/nginx.socket`.
 * You touch `/tmp/app-initialized` when you are ready for traffic.
 * You can start your web server with a shell command.
-
-## Requirements (Solo Mode)
-
-* Add a custom nginx config to your app source code at `config/nginx.conf.erb`. You can start by copying the [sample config for nginx solo mode](config/nginx-solo-sample.conf.erb).
 
 ## Features
 
@@ -62,17 +58,6 @@ For example, to get NGINX and Unicorn up and running:
 ```bash
 $ cat Procfile
 web: bin/start-nginx bundle exec unicorn -c config/unicorn.rb
-```
-
-### nginx Solo Mode
-
-nginx-s3-buildpack provides a command named `bin/start-nginx-solo`. This is for you if you don't want to run an additional app server on the Dyno.
-This mode requires you to put a `config/nginx.conf.erb` in your app code. You can start by coping the [sample config for nginx solo mode](config/nginx-solo-sample.conf.erb).
-For example, to get NGINX and Unicorn up and running:
-
-```bash
-$ cat Procfile
-web: bin/start-nginx-solo
 ```
 
 ### Setting the Worker Processes and Connections
