@@ -1,0 +1,13 @@
+{
+  "bucket_name":            "<%= ENV['S3CLI_BUCKET_NAME'] %>",
+
+  "credentials_source":     "static",
+  "access_key_id":          "<%= ENV['S3CLI_ACCESS_KEY'] %>",
+  "secret_access_key":      "<%= ENV['S3CLI_SECRET_KEY'] %>",
+
+  "region":                 "<%= ENV['S3CLI_REGION'] %>",
+
+  "ssl_verify_peer":        true,
+  "use_ssl":                true,
+  "signature_version":      "4"
+}
