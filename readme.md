@@ -1,6 +1,6 @@
 # Heroku Buildpack: NGINX
 
-Nginx-buildpack vendors NGINX inside a dyno and connects NGINX to an app server via UNIX domain sockets.
+Nginx-s3-buildpack vendors NGINX inside a dyno and connects NGINX to an app server via UNIX domain sockets.
 
 ## Motivation
 
@@ -55,7 +55,7 @@ $ heroku config:set NGINX_ACCESS_LOG_PATH="/dev/null"
 
 ### Language/App Server Agnostic
 
-nginx-buildpack provides a command named `bin/start-nginx` this command takes another command as an argument. You must pass your app server's startup command to `start-nginx`.
+nginx-s3-buildpack provides a command named `bin/start-nginx` this command takes another command as an argument. You must pass your app server's startup command to `start-nginx`.
 
 For example, to get NGINX and Unicorn up and running:
 
@@ -66,7 +66,7 @@ web: bin/start-nginx bundle exec unicorn -c config/unicorn.rb
 
 ### nginx Solo Mode
 
-nginx-buildpack provides a command named `bin/start-nginx-solo`. This is for you if you don't want to run an additional app server on the Dyno.
+nginx-s3-buildpack provides a command named `bin/start-nginx-solo`. This is for you if you don't want to run an additional app server on the Dyno.
 This mode requires you to put a `config/nginx.conf.erb` in your app code. You can start by coping the [sample config for nginx solo mode](config/nginx-solo-sample.conf.erb).
 For example, to get NGINX and Unicorn up and running:
 

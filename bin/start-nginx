@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 
-psmgr=/tmp/nginx-buildpack-wait
+psmgr=/tmp/nginx-s3-buildpack-wait
 rm -f $psmgr
 mkfifo $psmgr
 
 # Evaluate config to get $PORT
 erb config/nginx.conf.erb > config/nginx.conf
+
+# Evaluate s3cli config
+erb config/s3cli-config.json.erb > config/s3cli-config.json
 
 n=1
 while getopts :f option ${@:1:2}

@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
-echo 'nginx-buildpack'
+echo 'nginx-s3-buildpack'
 exit 0
