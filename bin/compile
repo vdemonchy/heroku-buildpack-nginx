@@ -20,6 +20,9 @@ mkdir -p "$1/config"
 cp config/s3cli-config.json.erb "$1/config"
 echo '-----> nginx-s3-buildpack: s3cli config copied to app/config'
 
+mkdir -p "$1/ssl"
+echo '-----> nginx-s3-buildpack: Created ssl/ dir for certs downloaded with s3cli'
+
 cp config/mime.types "$1/config/"
 echo '-----> nginx-s3-buildpack: Default mime.types copied to app/config/'
 

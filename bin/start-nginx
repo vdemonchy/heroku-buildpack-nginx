@@ -10,6 +10,10 @@ erb config/nginx.conf.erb > config/nginx.conf
 # Evaluate s3cli config
 erb config/s3cli-config.json.erb > config/s3cli-config.json
 
+# Download certificates from S3 and unzip them into ssl/
+s3cli -c config/s3cli-config.json get ${APP_DOMAIN}.zip ssl/${APP_DOMAIN}.zip
+unzip -qq -d ssl/ ssl/${APP_DOMAIN}.zip
+
 n=1
 while getopts :f option ${@:1:2}
 do
